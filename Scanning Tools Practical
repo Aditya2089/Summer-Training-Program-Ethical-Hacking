@@ -1,0 +1,222 @@
+Scanning Tools Practical
+
+• Nmap (Network Mapper)
+
+Installation on Windows
+
+Download from:
+Nmap Official Website - https://nmap.org/
+After installation:
+nmap --version
+Expected Output:
+Nmap version 7.97
+
+• ICMP Ping Sweep
+
+Windows Practical
+
+Single Host
+ping 192.168.1.10
+
+Output
+Reply from 192.168.1.10:
+bytes=32 time=1ms TTL=128
+
+• Nmap ICMP Discovery
+
+Command
+nmap -sn 192.168.1.0/24
+
+Explanation
+Option   | Meaning
+---------------------------------
+-sn      | Host Discovery Only
+---------------------------------
+
+• ARP Discovery - ARP (Address Resolution Protocol) maps IP addresses to MAC addresses.
+
+• Windows ARP Table
+
+Command -> arp -a
+
+Nmap ARP Discovery
+
+Command -> nmap -PR 192.168.1.0/24
+
+Output
+192.168.1.1
+192.168.1.10
+192.168.1.20
+
+• TCP Ping Discovery - Some hosts block ICMP requests. Instead, send a TCP packet to a common port.
+
+• Nmap TCP Ping
+
+Scan Port 80
+nmap -PS80 192.168.1.0/24
+
+Scan Multiple Ports
+nmap -PS80,443,22 192.168.1.0/24
+
+• UDP Ping Discovery - UDP packets are sent to a target port.
+
+• Nmap UDP Discovery
+
+Command -> nmap -PU53 192.168.1.0/24
+
+Output
+Host is up
+
+• NetBIOS Discovery (Windows Networks)
+
+• Windows Command
+
+View Network Devices
+command -> net view
+
+Query Hostname
+command -> nbtstat -A 192.168.1.10
+
+• DNS-Based Discovery - DNS can reveal active systems.
+
+Windows Command
+
+Lookup Host
+command -> nslookup google.com
+
+• Nmap
+
+nmap -sn 192.168.1.0/24      # stealth scan
+nmap -PR 192.168.1.0/24      # ARP ping scan
+nmap -PS80 192.168.1.0/24    # Port scan for port 80
+
+• Zenmap
+
+Steps:
+
+1. Open Zenmap
+2. Enter target - 192.168.1.0/24
+3. Choose:
+Ping Scan
+4. Click Scan
+
+Results display active hosts graphically.
+
+• Angry IP Scanner
+
+Steps
+
+1. Open tool
+2. Enter range
+192.168.1.1 - 192.168.1.254
+3. Click Start
+
+Output :-
+• IP
+• Hostname
+• Response Time
+
+• Advanced IP Scanner
+
+Steps
+1. Open scanner
+2. Scan network range
+192.168.1.0/24
+3. View active hosts 
+
+• Wireshark (Verification Tool)
+
+Filter
+ICMP traffic:
+icmp
+ARP traffic:
+arp
+
+Observe:
+• Echo Requests
+• Echo Replies
+• ARP Requests
+• ARP Replies 
+
+• Practical Lab (Windows)
+
+Scenario
+
+Your PC:
+192.168.1.100
+
+Network:
+192.168.1.0/24
+
+Step 1 – Check Gateway
+ipconfig
+Result:
+Default Gateway
+192.168.1.1
+
+Step 2 – Ping Gateway
+ping 192.168.1.1
+
+Step 3 – View ARP Cache
+arp -a
+
+Step 4 – Discover Live Hosts
+nmap -sn 192.168.1.0/24
+Result:
+192.168.1.1
+192.168.1.10
+192.168.1.20
+192.168.1.30
+
+Step 5 – Verify in Wireshark
+Start capture and apply:
+icmp
+Run:
+ping 192.168.1.10
+
+Observe:
+• Echo Request
+• Echo Reply 
+
+Practical : Host Discovery
+
+Objective
+Find active hosts on a network.
+
+Command -> nmap -sn 192.168.1.0/24
+
+Explanation
+
+Option Meaning
+-sn Ping Scan Only
+
+Output
+
+Nmap scan report for 192.168.1.1
+Host is up
+
+Nmap scan report for 192.168.1.10
+Host is up
+
+Result
+
+Active devices discovered:
+192.168.1.1
+192.168.1.10
+192.168.1.15
+
+--------------------------------------------------------------END---------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
