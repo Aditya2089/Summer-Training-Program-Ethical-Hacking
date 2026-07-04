@@ -1,0 +1,46 @@
+Simple Footprinting And Reconaissance Practicals :-
+
+• WHOIS Footprinting
+
+Practical :- 
+
+Visit: 
+ICANN Lookup - https://lookup.icann.org/en
+
+Search:
+coursera.org
+
+Observation
+Record:-
+• Registrar
+• Registration details
+• Nameservers
+
+
+Result :-
+Domain ownership information collected.
+
+• DNS Footprinting
+
+Practical
+Open:
+DNSchecker - https://dnschecker.org/
+
+Enter:
+coursera.org
+
+Observe:-
+• A records
+• MX records
+• NS records
+
+Result
+DNS infrastructure identified.
+
+----------------------------------------------------------------END--------------------------------------------------------------------
+
+
+
+
+
+
